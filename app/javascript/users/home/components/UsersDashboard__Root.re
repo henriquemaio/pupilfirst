@@ -4,6 +4,7 @@
 open UsersDashboard__Types;
 
 let str = React.string;
+let t = I18n.t(~scope="components.UsersDashboard__Root");
 
 type view =
   | ShowCourses
@@ -36,7 +37,7 @@ let headerSectiom = (userName, userTitle, avatarUrl, showUserEdit) => {
     {showUserEdit
        ? <a className="btn" href="/user/edit">
            <i className="fas fa-edit text-xs md:text-sm mr-2" />
-           <span> {"Edit Profile" |> str} </span>
+           <span> {t("edit_profile")->str} </span>
          </a>
        : React.null}
   </div>;
@@ -54,14 +55,14 @@ let navSection = (view, setView, communities, issuedCertificates) => {
         className={navButtonClasses(view == ShowCourses)}
         onClick={_ => setView(_ => ShowCourses)}>
         <i className="fas fa-book text-xs md:text-sm mr-2" />
-        <span> {"My Courses" |> str} </span>
+        <span> {t("my_courses")->str} </span>
       </button>
       {communities |> ArrayUtils.isNotEmpty
          ? <button
              className={navButtonClasses(view == ShowCommunities)}
              onClick={_ => setView(_ => ShowCommunities)}>
              <i className="fas fa-users text-xs md:text-sm mr-2" />
-             <span> {"Communities" |> str} </span>
+             <span> {t("communities")->str} </span>
            </button>
          : React.null}
       {issuedCertificates |> ArrayUtils.isNotEmpty
@@ -69,7 +70,7 @@ let navSection = (view, setView, communities, issuedCertificates) => {
              className={navButtonClasses(view == ShowCertificates)}
              onClick={_ => setView(_ => ShowCertificates)}>
              <i className="fas fa-certificate text-xs md:text-sm mr-2" />
-             <span> {"Certificates" |> str} </span>
+             <span> {t("certificates")->str} </span>
            </button>
          : React.null}
     </div>
@@ -131,16 +132,24 @@ let ctaFooter = (course, currentSchoolAdmin) => {
 
   switch (callToAction(course, currentSchoolAdmin)) {
   | `ViewCourse =>
-    ctaButton("View Course", studentLink(courseId, "curriculum"))
+    ctaButton(
+      t("view_course"), 
+      studentLink(courseId, "curriculum"))
   | `EditCourse =>
     ctaButton(
-      "Edit Curriculum",
+      t("edit_curriculum"),
       "/school/courses/" ++ courseId ++ "/curriculum",
     )
   | `ReviewSubmissions =>
-    ctaButton("Review Submissions", studentLink(courseId, "review"))
-  | `DroppedOut => ctaText("Dropped out", "fas fa-user-slash")
-  | `CourseEnded => ctaText("Course Ended", "fas fa-history")
+    ctaButton(
+      t("review_submissions"),
+      studentLink(courseId, "review"))
+  | `DroppedOut => ctaText(
+      t("dropped_out"),
+      "fas fa-user-slash")
+  | `CourseEnded => ctaText(
+      t("course_ended"),
+      "fas fa-history")
   };
 };
 
@@ -256,8 +265,7 @@ let coursesSection = (courses, communities, currentSchoolAdmin) => {
                        && !(course |> Course.author)) {
                      <div
                        className="text-sm py-4 bg-red-100 rounded mt-2 px-6">
-                       {"Your student profile for this course is locked, and cannot be updated."
-                        |> str}
+                       {t("student_profile_locked")->str}
                      </div>;
                    } else {
                      <div>
@@ -294,7 +302,7 @@ let communitiesSection = communities => {
                     {community |> Community.name |> str}
                   </h4>
                   <div className="btn btn-small btn-primary-ghost mt-2">
-                    {"Visit Community" |> str}
+                    {t("visit_community")->str}
                   </div>
                 </div>
               </a>

@@ -33,6 +33,21 @@ en:
       name_label: Name
       name_placeholder: A name to identify this certificate
       success_notification: You can now edit this certificate.
+    UsersDashboard__Root:
+      edit_profile: Editar Perfil
+      my_courses: Aulas
+      communities: Comunidades
+      certificates: Certificados
+      view_course: Ver Curso
+      edit_curriculum: Editar Currículo
+      review_submissions: Revisar Envios
+      dropped_out: Abandonado
+      course_ended: Curso Finalizado
+      view_curriculum: Ver Currículo
+      leaderboard: Ranking
+      my_students: Meus Estudantes
+      student_profile_locked: Seu perfil de aluno para este curso está bloqueado e não pode ser atualizado.
+      visit_community: Visitar Comunidade
 
   jobs:
     timeline_events:
