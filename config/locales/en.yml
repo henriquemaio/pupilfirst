@@ -34,20 +34,20 @@ en:
       name_placeholder: A name to identify this certificate
       success_notification: You can now edit this certificate.
     UsersDashboard__Root:
-      edit_profile: Editar Perfil
-      my_courses: Aulas
-      communities: Comunidades
-      certificates: Certificados
-      view_course: Ver Curso
-      edit_curriculum: Editar Currículo
-      review_submissions: Revisar Envios
-      dropped_out: Abandonado
-      course_ended: Curso Finalizado
-      view_curriculum: Ver Currículo
-      leaderboard: Ranking
-      my_students: Meus Estudantes
-      student_profile_locked: Seu perfil de aluno para este curso está bloqueado e não pode ser atualizado.
-      visit_community: Visitar Comunidade
+      edit_profile: Edit Profile
+      my_courses: My Courses
+      communities: Communities
+      certificates: Certificates
+      view_course: View Course
+      edit_curriculum: Edit Curriculum
+      review_submissions: Review Submissions
+      dropped_out: Dropped Out
+      course_ended: Course Ended
+      view_curriculum: View Curriculum
+      leaderboard: Leaderboard
+      my_students: My Students
+      student_profile_locked: Your student profile for this course is locked, and cannot be updated.
+      visit_community: Visit Community
 
   jobs:
     timeline_events:
